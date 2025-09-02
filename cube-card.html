@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Interactive 3D CV — Cube Card</title>
+
+    <!-- Core styles from the Rubik project -->
+    <link rel="stylesheet" href="rubik.css" />
+    <!-- Page-specific styles (create next) -->
+    <link rel="stylesheet" href="cube-cv.css" />
+  </head>
+
+  <body>
+    <main>
+      <!-- 3D scene container (used by existing [rubik.js](rubik.js)) -->
+      <div id="rubik-container" aria-live="polite">
+        <div class="loading">Loading cube…</div>
+        <!-- Personal logo placeholder — do NOT include client logo here.
+             If you want a logo, I'll generate an SVG file next. -->
+        <div id="profile-logo" aria-hidden="true"></div>
+      </div>
+
+      <!-- Callout panel (populated by cube-cv.js on hover/click) -->
+      <aside id="cv-callout" class="cv-callout" aria-hidden="true">
+        <header class="cv-callout-header">
+          <div class="cv-icon" aria-hidden="true"></div>
+          <h3 id="cv-title">Title</h3>
+        </header>
+        <div class="cv-body">
+          <p id="cv-text">Short description will appear here.</p>
+          <nav class="cv-actions" aria-label="Quick actions">
+            <a
+              id="cv-action-primary"
+              class="cv-btn"
+              href="#"
+              target="_blank"
+              rel="noopener"
+              >Open</a
+            >
+            <a
+              id="cv-action-secondary"
+              class="cv-link"
+              href="#"
+              target="_blank"
+              rel="noopener"
+              >More</a
+            >
+          </nav>
+        </div>
+      </aside>
+
+      <!-- Non-interactive overlay for visual threads / pointer pass-through -->
+      <div class="cv-overlay" aria-hidden="true"></div>
+
+      <!-- Minimal bottom bar for quick contact / QR (style in cube-cv.css) -->
+      <footer id="cv-footer" role="contentinfo">
+        <div class="cv-footer-inner">
+          <button
+            id="toggle-autospin"
+            class="cv-icon-btn"
+            aria-pressed="false"
+            title="Toggle rotation"
+          >
+            Auto
+          </button>
+          <a
+            id="open-pdf"
+            class="cv-link"
+            href="./Marko_P.pdf"
+            target="_blank"
+            rel="noopener"
+            >Open PDF CV</a
+          >
+          <button id="show-qr" class="cv-icon-btn" title="Show QR">QR</button>
+        </div>
+      </footer>
+    </main>
+
+    <!-- Three.js + existing Rubik scene (we reuse [rubik.js](rubik.js) functions like [`createRubikCube`](rubik.js) / [`animate`](rubik.js)) -->
+    <script src="three.min.js"></script>
+    <script src="rubik.js"></script>
+
+    <!-- Page augmentation: stickers, raycaster, callouts (we'll create this file next) -->
+    <script src="cube-cv.js"></script>
+  </body>
+</html>

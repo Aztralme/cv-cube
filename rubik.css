@@ -1,0 +1,273 @@
+/* ✅ JEDNA JEDINA POZADINA - GRADIJENT SIVA */
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(
+    135deg,
+    #f8f9fa 0%,
+    #e9ecef 25%,
+    #dee2e6 50%,
+    #ced4da 75%,
+    #adb5bd 100%
+  );
+  min-height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow: hidden;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  background-color: transparent !important;
+}
+
+/* ✅ KONTEJNER - TRANSPARENTAN */
+#rubik-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+  background-color: transparent !important;
+  border: none !important; /* NOVO: Uklanja sve okvire */
+  box-shadow: none !important; /* NOVO: Uklanja sve senke */
+  border-radius: 0 !important; /* NOVO: Uklanja zaobljene ivice */
+  /* ✅ UKLONJEN GLASSMORPHISM - TRANSPARENTAN */
+}
+/* ✅ CANVAS - ČIST */
+canvas {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  transform: scale(0.8);
+  border-radius: 0; /* NOVO: Uklanja zaobljene ivice */
+  background-color: transparent !important;
+  box-shadow: none !important; /* NOVO: Uklanja sve senke */
+}
+
+/* ✅ LOGO - POTPUNO ČIST, BEZ POZADINSKIH EFEKATA */
+#ivvk-logo {
+  position: absolute;
+  top: 17%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: auto;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+  /* ✅ UKLONJEN FILTER, BACKGROUND, PADDING, BACKDROP-FILTER */
+}
+
+/* ✅ LOGO HOVER - MINIMALNO */
+#ivvk-logo:hover {
+  transform: translate(-50%, -50%) scale(1.02);
+}
+
+/* ✅ UKLONJEN LOGO ::BEFORE PSEUDO-ELEMENT */
+
+#ivvk-logo.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ✅ LOGIN FORMA */
+#login-form {
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transition: all 1.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  pointer-events: none;
+}
+
+#login-form.show {
+  opacity: 1 !important;
+  visibility: visible !important;
+  pointer-events: auto !important;
+}
+
+/* Loading indicator */
+.loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #495057;
+  font-size: 16px;
+  z-index: 3;
+}
+
+/* ✅ RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  #ivvk-logo {
+    width: 200px;
+    top: 10%;
+  }
+  canvas {
+    transform: scale(0.7);
+  }
+}
+
+@media (max-width: 480px) {
+  #ivvk-logo {
+    width: 160px;
+    top: 12%;
+  }
+  canvas {
+    transform: scale(0.6);
+  }
+}
+
+/* Performance optimizacije */
+* {
+  box-sizing: border-box;
+}
+
+canvas {
+  will-change: transform;
+}
+/* Dodaj u rubikonAnalytics.css */
+
+/* Premium Mode Styles */
+.rubikon-analytics-panel.premium-mode {
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.1) 0%,
+    rgba(26, 32, 44, 0.95) 50%,
+    rgba(45, 55, 72, 0.95) 100%
+  );
+  border: 2px solid rgba(139, 92, 246, 0.3);
+}
+
+.analytics-controls {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.export-btn {
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 6px;
+  padding: 6px 12px;
+  color: #10b981;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.export-btn:hover {
+  background: rgba(16, 185, 129, 0.2);
+  transform: translateY(-1px);
+}
+
+/* Charts Section */
+.charts-section {
+  margin-top: 24px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.charts-title {
+  color: #8fd6cb;
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.charts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 20px;
+}
+
+.chart-container {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 16px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Filters Bar */
+.filters-bar {
+  display: flex;
+  gap: 16px;
+  padding: 16px;
+  background: rgba(139, 92, 246, 0.1);
+  border-radius: 10px;
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-group label {
+  color: #a0aec0;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.filter-group select {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #e2e8f0;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.reset-filters-btn {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #ef4444;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  transition: all 0.2s ease;
+}
+
+.reset-filters-btn:hover {
+  background: rgba(239, 68, 68, 0.2);
+}
+
+/* Notifications */
+.notification {
+  animation: slideInFromRight 0.3s ease-out;
+}
+
+@keyframes slideInFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
